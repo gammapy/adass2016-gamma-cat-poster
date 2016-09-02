@@ -1,0 +1,19 @@
+An open catalog for TeV gamma-ray astronomy
+
+Christoph Deil, Arjun Vorugantia, Axel Donath, Johannes King
+
+The first cosmic TeV gamma-ray source detected from the ground was the Crab
+nebula in 1989. Since then TeV astronomy has seen rapid growth. By now, over 160
+sources have been detected and position, morphology, spectrum and sometimes
+lightcurves measured. Most of that data is reported in individual papers. Often
+the source parameters are not given in a machine-readable format, and if it is,
+it's usually reported via different measures and in different data formats.
+
+We present an effort to collect the available data on TeV sources and curate it
+into an as-uniform as possible format and have it freely available for download
+at https://github.com/gammapy/gamma-cat . This poster will present the project
+idea and status, as well as its technical implementation, which includes YAML,
+ECSV, JSON and FITS files and Python scripts using Gammapy (http://gammapy.org),
+and several other Python packages. A web frontend to browse this TeV source
+catalog and other gamma-ray and multi-wavelength data is under development at
+http://gamma-sky.net .
