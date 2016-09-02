@@ -1,6 +1,6 @@
 An open catalog for TeV gamma-ray astronomy
 
-Christoph Deil, Arjun Vorugantia, Axel Donath, Johannes King
+Christoph Deil, Arjun Voruganti, Axel Donath, Johannes King
 
 The first cosmic TeV gamma-ray source detected from the ground was the Crab
 nebula in 1989. Since then, TeV astronomy has seen rapid growth. By now, over
