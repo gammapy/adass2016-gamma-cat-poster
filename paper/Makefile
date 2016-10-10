@@ -11,7 +11,7 @@ $(TARGET).pdf: *.tex figures/* $(TARGET).bib
 	$(BIBTEX) $*
 	$(LATEX) $<
 	$(LATEX) $<
-	dvipdf $(TARGET)
+	dvipdfm $(TARGET)
 
 make clean:
 	- rm -f $(TARGET).pdf $(TARGET).aux $(TARGET).log $(TARGET).bbl $(TARGET).fff

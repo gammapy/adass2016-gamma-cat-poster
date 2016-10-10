@@ -1,15 +1,3 @@
-% This is the ADASS_template.tex LaTeX file, 26th August 2016.
-% It is based on the ASP general author template file, but modified to reflect the specific
-% requirements of the ADASS proceedings.
-% Copyright 2014, Astronomical Society of the Pacific Conference Series
-% Revision:  14 August 2014
-
-% To compile, at the command line positioned at this folder, type:
-% latex ADASS_template
-% latex ADASS_template
-% dvipdfm ADASS_template
-% This will create a file called aspauthor.pdf.}
-
 \documentclass[11pt,twoside]{article}
 
 % Do not use packages other than asp2014. 
@@ -18,24 +6,13 @@
 \aspSuppressVolSlug
 \resetcounters
 
-% References must all use BibTeX entries in a .bibfile.
-% References must be cited in the text using \citet{} or \citep{}.
-% Do not use \cite{}.
-% See ManuscriptInstructions.pdf for more details
 \bibliographystyle{asp2014}
 
-% 1 author: "Surname"
-% 2 authors: "Surname1 and Surname2"
-% 3 authors: "Surname1, Surname2, and Surname3"
-% >3 authors: "Surname1 et al."
-% Use mixed case type for the shortened title
-% Ensure shortened title does not cause an overfull hbox LaTeX error
-% See ASPmanual2010.pdf 2.1.4  and ManuscriptInstructions.pdf for more details
-\markboth{Author1, Author2, and Author3}{Author's Final Checklist}
+\markboth{Deil at al.}{An open catalog for TeV gamma-ray astronomy}
 
 \begin{document}
 
-\title{ADASS Author Template}
+\title{An open catalog for TeV gamma-ray astronomy}
 
 % Note the position of the comma between the author name and the 
 % affiliation number.
@@ -45,18 +22,41 @@
 % authors share an affiliation this should be in a single \affil which can then
 % be referenced for several author names.
 % See ManuscriptInstructions.pdf and ASPmanual2010.pdf 3.1.4 for more details
-\author{Sample~Author1,$^1$ Sample~Author2,$^2$ and Sample~Author3$^3$
-\affil{$^1$Institution Name, Institution City, State/Province, Country; \email{AuthorEmail@email.edu}}
-\affil{$^2$Institution Name, Institution City, State/Province, Country}
-\affil{$^3$Institution Name, Institution City, State/Province, Country}}
+\author{Christoph~Deil,$^1$
+Arjun~Voruganti,$^1$
+Axel~Donath,$^1$
+Johannes~King,$^1$
+Catherine~Boisson,$^2$
+Konstancja~Satalecka,$^3$
+and Matthias~Wegen$^3$
+\affil{$^1$MPIK, Heidelberg, Germany\email{Christoph.Deil@mpi-hd.mpg.de}}
+\affil{$^2$DESY, Zeuthen, Germany}
+\affil{$^3$LUTH, Observatoire de Paris, Meudon, France}
+}
 
 % This section is for ADS Processing.  There must be one line per author.
-\paperauthor{Sample~Author1}{Author1Email@email.edu}{ORCID_Or_Blank}{Author1 Institution}{Author1 Department}{City}{State/Province}{Postal Code}{Country}
+\paperauthor{Christoph~Deil}{Christoph.Deil@mpi-hd.mpg.de}{}{MPI for Nuclear Physics}{Astroparticle Devision}{Heidelberg}{}{}{Germany}
 \paperauthor{Sample~Author2}{Author2Email@email.edu}{ORCID_Or_Blank}{Author2 Institution}{Author2 Department}{City}{State/Province}{Postal Code}{Country}
 \paperauthor{Sample~Author3}{Author3Email@email.edu}{ORCID_Or_Blank}{Author3 Institution}{Author3 Department}{City}{State/Province}{Postal Code}{Country}
 
 \begin{abstract}
-This is the ADASS 2016 author template file.  This is based on the Astronomical Society of the Pacific (ASP) 2014 template, but has been modified to reflect the specific ADASS requirements.
+
+The first cosmic TeV gamma-ray source detected from the ground was the Crab
+nebula in 1989. Since then, TeV astronomy has seen rapid growth. By now, over
+160 sources have been detected. Measurements of source position, morphology,
+spectrum and sometimes lightcurves have been published, mostly in individual
+papers. Often the source parameters are not given in a machine-readable format,
+and even if they are, there is no common data format.
+
+We present an effort to collect the available data on TeV sources, and curate it
+into an as-uniform and as-complete as possible form, and have it freely
+available for download at https://github.com/gammapy/gamma-cat . This poster
+presents the project idea and status, as well as its technical implementation,
+which includes YAML, ECSV, JSON and FITS files and Python scripts using Gammapy
+(http://gammapy.org), and several other Python packages. A web front-end to
+browse this TeV source catalog and other gamma-ray and multi-wavelength data is
+under development at http://gamma-sky.net .
+
 \end{abstract}
 
 \section{The Template}
