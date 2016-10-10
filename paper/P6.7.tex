@@ -153,17 +153,10 @@ Here is an itemized list:
 
 
 \section{Images}
-For some figures, see Figures \ref{ex_fig1}- \ref{ex_fig3}.
 
-\articlefigure{example.eps}{ex_fig1}{Welcome to 1953.}
-% It is possible to reduce the size of a figure among other changes (see the instructions).  Here is an example:
-% \articlefigure[width=.5\textwidth]{example.eps}{ex_fig1_reduced}{Welcome to 1953 a little smaller.}
+Example lightcurve, see Figure~\ref{fig:lc}.
 
-\articlefiguretwo{example.eps}{example.eps}{ex_fig2}{Now there are two of them.  \emph{Left:} An image from long ago.  \emph{Right:} The same exact thing.}
-% There is a figure command allowing for three figures:
-% \articlefigurethree{example.eps}{example.eps}{example.eps}{ex_fig1_triple}{Now there are three of them.}
-
-\articlefigurefour{example.eps}{example.eps}{example.eps}{example.eps}{ex_fig3}{Now four of them?}
+\articlefigure{figures/lightcurve.eps}{fig:lc}{Lightcurve example.}
 
 \clearpage % To force this stuff to happen by this point in the text, otherwise these will probably end up after the references.
 
@@ -171,12 +164,12 @@ There are also the landscape versions \verb"\articlelandscapefigure" and \\
 \verb"\articlelandscapefiguretwo" which are further described in the instructions.
 
 \section{References}
+
 References must be provided in BibTeX format, in a .bib file, and should usually be referenced using \verb"\citet" or \verb"\citep". The file example.bib supplied with this template is taken from an ADASS 2015 paper, and includes references to previous ADASS proceedings 
 \citep[such as][]{1999ASPC..172..487P} and to papers in what was then the current 2015 proceedings (e.g.\ \citet{O11-4_adassxxv}). Note that the `TBD' entries that appear for papers in the current proceedings will be dealt with by the ADASS editors when the final volume is produced. The example .bib file has a large number of references unused by this template file; such unused references have been left in as example, but should be removed before a paper is submitted.
 
-\acknowledgements The ASP would like to thank the dedicated researchers who are publishing with the ASP.  It will make things a lot easier if you keep this text on the same line as the \verb"\acknowledgements" command.
+\acknowledgements Do we want to put any acknowledgements?
 
-
-\bibliography{example}  % For BibTex
+\bibliography{P6.7}
 
 \end{document}

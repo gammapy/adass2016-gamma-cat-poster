@@ -1,4 +1,4 @@
-TARGET=gamma-cat
+TARGET=P6.7
 LATEX=latex
 BIBTEX=bibtex
 
@@ -11,6 +11,7 @@ $(TARGET).pdf: *.tex figures/* $(TARGET).bib
 	$(BIBTEX) $*
 	$(LATEX) $<
 	$(LATEX) $<
+	dvipdf $(TARGET)
 
 make clean:
 	- rm -f $(TARGET).pdf $(TARGET).aux $(TARGET).log $(TARGET).bbl $(TARGET).fff
