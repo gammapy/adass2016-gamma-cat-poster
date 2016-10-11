@@ -1,4 +1,4 @@
-TARGET=P6.7
+TARGET=P6-7
 LATEX=latex
 BIBTEX=bibtex
 
@@ -22,6 +22,7 @@ tarball:
 	$(TARGET).tex \
 	$(TARGET).bib \
 	$(TARGET).bbl \
-	figures/lightcurve.eps \
+	figures/P6-7_f1.eps \
+	figures/P6-7_f2.eps \
 	asp2014.sty asp2014.bst \
 	Makefile
