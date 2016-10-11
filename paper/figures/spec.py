@@ -1,7 +1,7 @@
 """Plot Crab pulsar and nebula spectral energy distribution (SED)."""
 import numpy as np
 import matplotlib
-matplotlib.use('agg')
+matplotlib.use('ps')
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 import astropy.units as u
@@ -72,6 +72,10 @@ def main():
     filename = 'spec.pdf'
     print('Writing ', filename)
     fig.savefig(filename)
+
+    # filename = 'spec.eps'
+    # print('Writing ', filename)
+    # fig.savefig(filename)#, bbox_inches='tight')
 
 if __name__ == '__main__':
     main()
