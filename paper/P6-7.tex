@@ -13,8 +13,12 @@
 \newcommand{\gammacat}{\texttt{gamma-cat}}
 \newcommand{\gammapy}{\texttt{Gammapy}}
 \newcommand{\gammasky}{\texttt{gamma-sky.net}}
+\newcommand{\tevcat}{\texttt{TeVCat}}
+\newcommand{\tegev}{\texttt{TeGeV}}
+
 \newcommand{\nsources}{TODO}
 \newcommand{\npapers}{TODO}
+
 \newcommand{\yaml}{\texttt{YAML}}
 \newcommand{\ecsv}{\texttt{ECSV}}
 \newcommand{\fits}{\texttt{FITS}}
@@ -68,14 +72,85 @@ analysis.
 \section{Introduction}
 
 The first cosmic TeV gamma-ray source detected from the ground was the Crab
-nebula in 1989. Since then, TeV astronomy has seen rapid growth. By now, over
-160 sources have been detected (see Figure~\ref{fig:allsky}). Measurements of
-source position, morphology, spectrum and sometimes lightcurves have been
-published, mostly in individual papers. Often the source parameters are not
-given in a machine-readable format, and even if they are, there is no common
-data format.
+nebula in 1989. Since then, TeV astronomy has seen rapid growth. By now,
+\nsources~sources (status: October~2016) have been detected (see
+Figure~\ref{fig:allsky}). 
+We start with a review of previous efforts to create TeV data collections, and then in the next section describe the new project presented here for the first time: \gammacat.
 
 \articlefigure[width=1.0\textwidth]{figures/allsky.eps}{fig:allsky}{TeV gamma-ray sources from \gammacat\ (white circles, \nsources~sources, status October~2016). The image (counts, smoothed with a Gaussian of width $\sigma=0.3$~deg) shows the gamma-ray sky above 50~GeV using the Fermi-LAT 2FHL dataset \citep{fermi-2fhl}.}
+
+Measurements of source position, morphology, spectrum and sometimes lightcurves
+have been published, mostly in individual papers. Often the measurements are not
+given in a machine-readable format, sometimes it is given in ASCII or FITS
+formats. There have been several prior efforts to collect and curate the
+available TeV gamma-ray data. A H.E.S.S. source list is available in HTML
+(Hypertext markup language) and CSV (character-separated values) formats at
+\url{https://www.mpi-hd.mpg.de/hfm/HESS/pages/home/sources/}, some spectra and
+lightcurves of blazars measured by H.E.S.S. in FITS (Flexible Image Transport
+system) and VOTable (Virtual Observatory table) formats at
+\url{http://hess.obspm.fr/}. Some VERITAS images, lightcurves and spectra in
+FITS format are available at
+\url{http://veritas.sao.arizona.edu/veritas-science/veritas-results-mainmenu-72}.
+MAGIC at \url{http://vobs.magic.pic.es/fits/}. A light curve archive with FITS
+and VOTABLE data for some blazars is available at
+\url{https://astro.desy.de/gamma_astronomy/magic/projects/light_curve_archive/},
+which is an evolution of the data format and dataset described in \citet{lc}.
+HAWC publications are listed at
+\url{http://www.hawc-observatory.org/publications/}, as far as we know, no HAWC
+data in machine-readable format is available for download
+
+% TODO: should we mention HESS HGPS and HAWC first source catalogs?
+% TODO: Contrast this with the situation for Fermi-LAT, where many catalogs are available? (but fore individual source publications the situation is similar as for TeV -> no collection of data in machine-readable format available).
+
+An online TeV source catalog (as of October 2016) is available at \url{http://tevcat.uchicago.edu/} \citep{tevcat}. \tevcat\ is not available for download, and the terms and conditions page explicitly forbids systematic download of the data, e.g. by scraping the web page. \tevcat\ does not contain spectral points or lightcurve or image data.
+The \tegev\ catalog is available at \url{http://www.asdc.asi.it/tgevcat/} \citet{tgevcat}. \tegev\ is a larger collection of data compared to \tevcat, it does include spectral points and lightcurves. \tegev is part of a larger collection of multi-wavelength data (including e.g. X-ray and GeV gamma-ray data) and web-based tools to browse and analyse the data (e.g. the ASDC data explorer and SED builder). The \tegev data is available for download in CSV format, downloading all the data (including spectral points and lightcurves) would require scraping the website. 
+
+% TODO: should we have such comments here?
+% \tevcat\ is usually very up-to-date with newly detected TeV sources and papers, \tegev\ is currently at version 2 from July 2015. In the next 
+
+
+\section{\gammacat\ -- Open TeV data collection and catalog}
+
+In this section we describe \gammacat\
+(\url{https://github.com/gammapy/gamma-cat}), which is both a \emph{TeV data
+collection} and a \emph{TeV source catalog}. The data collection consists of
+measurements from papers in machine-readable form. From this collection, a TeV
+source catalog is derived as a higher-level data product. The source catalog is
+somewhat subjective and doesn't contain all data from the collection. For a
+given source, usually each paper contains a set of measurements (e.g. source
+position, morphology, spectrum) and for the catalog, ``the best available''
+parameters are chosen. Sometimes, especially for sources in the inner Galactic
+plane region where the source density is high, it can even happen that a later
+higher-resolution image reveals that what was previously thought of as one
+``source'' really consists of multiple, not clearly distinguishable ``sources''.
+Extra-galactic sources usually don't have this issue of source confusion, but
+the most common source class, active galactic nuclei (AGN), are often variable
+in flux and spectral shape, implying that no single measurement can be ``the
+best''. The source identification and association status can change over time,
+as new potential counterparts (e.g. pulsars, supernova remnants, AGN, \ldots)
+are discovered in multi-wavelength data. For these reasons, we consider the \emph{TeV data collection} aspect of primary importance --- \gammacat\ is a service to the astronomical community where information from hundreds of individual papers has been collected into a machine-readable form that can be easily queried and used. The \gammacat\ catalog is a secondary data product that provides a simplified summary of the available information on TeV gamma-ray sources.
+
+\subsection{Guiding principles}
+
+The following guiding principles motivated the creation of this new project, and partly it's implementation.
+
+\begin{itemize}
+\item \gammacat\ is fully open-access. Everyone can download all available data.
+\item \gammacat\ is fully transparent. For every measurement in the catalog, it shall be possible to identify the origin (usually a paper).
+\item \gammacat\ data is mostly stored in text files. Changes to \gammacat are under version control.
+\item \gammacat\ is fully open-source. The scripts
+\end{itemize}
+
+
+Note: This project is a copycat of \citet{sne-cat} and \url{https://astrocats.space/}, for TeV.
+
+TODO: discusss terms of use and attribution here?
+
+\begin{itemize}
+\item Open gamma formats: \citet{open-gamma} and \url{http://gamma-astro-data-formats.readthedocs.io/}
+\end{itemize}
+
+TODO: discuss project scope
 
 % We present an effort to collect the available data on TeV sources, and curate it
 % into an as-uniform and as-complete as possible form, and have it freely
@@ -86,25 +161,7 @@ data format.
 % packages. A web front-end to browse this TeV source catalog and other gamma-ray
 % and multi-wavelength data is under development at \url{http://gamma-sky.net}.
 
-Multi-mission analysis with Sherpa \citep{sherpa}
-
-Other projects:
-
-\begin{itemize}
-\item \citet{sne-cat} and \url{https://astrocats.space/}
-\item \citet{tgevcat} and \url{http://www.asdc.asi.it/tgevcat/}
-\item \citet{tevcat} and \url{http://tevcat.uchicago.edu/}
-\end{itemize}
-
-Data:
-
-\begin{itemize}
-\item Open gamma formats: \citet{open-gamma} and \url{http://gamma-astro-data-formats.readthedocs.io/}
-\item Lightcurves: \citet{lc} and \url{https://astro.desy.de/gamma_astronomy/magic/projects/light_curve_archive/}
-\item H.E.S.S. data: \url{http://hess.obspm.fr/} and \url{https://www.mpi-hd.mpg.de/hfm/HESS/pages/home/sources/}
-\item VERITAS data: \url{http://veritas.sao.arizona.edu/veritas-science/veritas-results-mainmenu-72}
-\item MAGIC data: \url{http://vobs.magic.pic.es/fits/}
-\end{itemize}
+\section{Implementation}
 
 Tools:
 
@@ -113,16 +170,9 @@ Tools:
 \item Astropy: \citet{astropy}
 \item Gammapy: \citet{gammapy}
 \item \url{https://github.com/andycasey/ads}
+Multi-mission analysis with Sherpa \citep{sherpa}
 \end{itemize}
 
-
-\section{Usage}
-
-tbd
-
-\section{Implementation}
-
-tbd
 
 \section{Examples}
 
@@ -142,7 +192,7 @@ Example lightcurve, see Figure~\ref{fig:lc}.
 
 Remember: gammacat this is useful and awesome.
 
-\clearpage % To force this stuff to happen by this point in the text, otherwise these will probably end up after the references.
+% \clearpage % To force this stuff to happen by this point in the text, otherwise these will probably end up after the references.
 
 \acknowledgements We thank Fabrizio Lucarelli, Gernot Maier, Konrad Bernl\"ohr and Tarek Hassan for useful discussions or feedback on gamma-cat.
 This research has made use of NASA's Astrophysics Data System Bibliographic Services, the SIMBAD database, operated at CDS, Strasbourg, France, the TeVCat online source catalog and the TeGeV catalog at ASDC, as well as the following astronomy Python packages: Astropy, Gammapy, ads.
