@@ -10,6 +10,17 @@
 
 \markboth{Deil at al.}{An open catalog for TeV gamma-ray astronomy}
 
+\newcommand{\gammacat}{\texttt{gamma-cat}}
+\newcommand{\gammapy}{\texttt{Gammapy}}
+\newcommand{\gammasky}{\texttt{gamma-sky.net}}
+\newcommand{\nsources}{TODO}
+\newcommand{\npapers}{TODO}
+\newcommand{\yaml}{\texttt{YAML}}
+\newcommand{\ecsv}{\texttt{ECSV}}
+\newcommand{\fits}{\texttt{FITS}}
+\newcommand{\votable}{\texttt{VOTABLE}}
+\newcommand{\json}{\texttt{JSON}}
+
 \begin{document}
 
 \title{An open catalog for TeV gamma-ray astronomy}
@@ -21,7 +32,7 @@ Johannes~King,$^1$
 Catherine~Boisson,$^2$
 Konstancja~Satalecka,$^3$
 and Matthias~Wegen$^3$
-\affil{$^1$MPIK, Heidelberg, Germany\email{Christoph.Deil@mpi-hd.mpg.de}}
+\affil{$^1$MPIK, Heidelberg, Germany; \email{Christoph.Deil@mpi-hd.mpg.de}}
 \affil{$^2$LUTH, Observatoire de Paris, Meudon, France}
 \affil{$^3$DESY, Zeuthen, Germany}
 }
@@ -37,25 +48,43 @@ and Matthias~Wegen$^3$
 
 \begin{abstract}
 
-The first cosmic TeV gamma-ray source detected from the ground was the Crab
-nebula in 1989. Since then, TeV astronomy has seen rapid growth. By now, over
-160 sources have been detected. Measurements of source position, morphology,
-spectrum and sometimes lightcurves have been published, mostly in individual
-papers. Often the source parameters are not given in a machine-readable format,
-and even if they are, there is no common data format.
-
-We present an effort to collect the available data on TeV sources, and curate it
-into an as-uniform and as-complete as possible form, and have it freely
-available for download at \url{https://github.com/gammapy/gamma-cat}. This
-poster presents the project idea and status, as well as its technical
-implementation, which includes YAML, ECSV, JSON and FITS files and Python
-scripts using Gammapy (\url{http://gammapy.org}), and several other Python
-packages. A web front-end to browse this TeV source catalog and other gamma-ray
-and multi-wavelength data is under development at \url{http://gamma-sky.net}.
+We present the \gammacat, an online data collection and source catalog for TeV
+gamma-ray astronomy. Currently data from \npapers~papers is available, and the
+catalog contains \nsources~sources. Data is input using the hierarchical, human-
+and machine-readable \yaml\ format and the tabular \ecsv\ text formats,
+processed using Python scripts into an as-uniform form as possible. The data can
+be browsed on the \gammasky~web page, analyzed using \gammapy, or fully
+downloaded in \fits\ and other formats and used in whatever way the user likes.
+Data is collected in a git repository on Github, providing transparency, version
+control as well as simple maintenance and contribution workflow. This data
+repository was started in August 2016, the data collection as well as the
+specification of the input and output formats is work in progress. Here we
+present the project for the first time, and discuss it's context,
+implementation, status, plans as well as some possible use cases for science
+analysis.
 
 \end{abstract}
 
 \section{Introduction}
+
+The first cosmic TeV gamma-ray source detected from the ground was the Crab
+nebula in 1989. Since then, TeV astronomy has seen rapid growth. By now, over
+160 sources have been detected (see Figure~\ref{fig:allsky}). Measurements of
+source position, morphology, spectrum and sometimes lightcurves have been
+published, mostly in individual papers. Often the source parameters are not
+given in a machine-readable format, and even if they are, there is no common
+data format.
+
+\articlefigure[width=1.0\textwidth]{figures/allsky.eps}{fig:allsky}{TeV gamma-ray sources from \gammacat\ (white circles, \nsources~sources, status October~2016). The image (counts, smoothed with a Gaussian of width $\sigma=0.3$~deg) shows the gamma-ray sky above 50~GeV using the Fermi-LAT 2FHL dataset \citep{fermi-2fhl}.}
+
+% We present an effort to collect the available data on TeV sources, and curate it
+% into an as-uniform and as-complete as possible form, and have it freely
+% available for download at \url{https://github.com/gammapy/gamma-cat}. This
+% poster presents the project idea and status, as well as its technical
+% implementation, which includes YAML, ECSV, JSON and FITS files and Python
+% scripts using Gammapy (\url{http://gammapy.org}), and several other Python
+% packages. A web front-end to browse this TeV source catalog and other gamma-ray
+% and multi-wavelength data is under development at \url{http://gamma-sky.net}.
 
 Multi-mission analysis with Sherpa \citep{sherpa}
 
@@ -85,10 +114,6 @@ Tools:
 \item Gammapy: \citet{gammapy}
 \item \url{https://github.com/andycasey/ads}
 \end{itemize}
-
-TeV sources, see Figure~\ref{fig:allsky}.
-
-\articlefigure{figures/allsky.eps}{fig:allsky}{TeV sources (using 2FHL Fermi-LAT high-energy image as background).}
 
 
 \section{Usage}

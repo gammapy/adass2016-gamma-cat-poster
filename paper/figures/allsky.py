@@ -12,7 +12,10 @@ def get_image():
     filename = '/Users/deil/code/gammapy-extra/datasets/fermi_2fhl/gll_psch_v08.fit.gz'
     image = SkyImage.read(filename)
     image.data = image.data.astype(float)
-    image = image.smooth('gauss', 3)
+    sigma_pix = 3
+    sigma_deg = sigma_pix * image.wcs_pixel_scale()[0]
+    print('Smoothing by sigma = {} pix = {:.3f}'.format(sigma_pix, sigma_deg))
+    image = image.smooth('gauss', sigma_pix)
     return image
 
 def plot_image(image):
