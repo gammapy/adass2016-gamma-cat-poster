@@ -70,10 +70,6 @@ def main():
     print('Writing ', filename)
     fig.savefig(filename, dpi=300)
 
-    filename = 'allsky.eps'
-    print('Writing ', filename)
-    fig.savefig(filename)
-
     filename = 'allsky.pdf'
     print('Writing ', filename)
     fig.savefig(filename)
