@@ -18,7 +18,7 @@ make clean:
 	- rm -f *.aux */*.aux */*/*.aux
 
 tarball:
-	- tar -cvzf $(TARGET).tar.gz \
+	- tar -cvf $(TARGET).tar \
 	copyrightForm_P6-7_deil.pdf \
 	$(TARGET).tex \
 	$(TARGET).bib \
