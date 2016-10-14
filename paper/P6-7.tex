@@ -8,7 +8,7 @@
 
 \bibliographystyle{asp2014}
 
-\markboth{Deil at al.}{An open catalog for TeV gamma-ray astronomy}
+\markboth{Deil at al.}{gamma-cat: an open data collection and source catalog for gamma-ray astronomy}
 
 \newcommand{\gammacat}{\texttt{gamma-cat}}
 \newcommand{\gammapy}{\texttt{Gammapy}}
@@ -40,10 +40,11 @@
 \newcommand{\pyads}{\url{https://github.com/andycasey/ads}}
 \newcommand{\gadfurl}{\url{http://gamma-astro-data-formats.readthedocs.io/}}
 \newcommand{\gammapycat}{\url{http://docs.gammapy.org/en/latest/catalog/}}
+\newcommand{\whsp}{\url{http://www.asdc.asi.it/2whsp/}}
 
 \begin{document}
 
-\title{An open catalog for TeV gamma-ray astronomy}
+\title{gamma-cat: an open data collection and source catalog for gamma-ray astronomy}
 
 \author{Christoph~Deil,$^1$
 Arjun~Voruganti,$^1$
@@ -107,19 +108,19 @@ For a given paper, the measurements on TeV gamma-ray sources are often not
 available in a machine-readable format. Typically the source position,
 morphology and spectral model are fitted to the data, and the results of that
 fit are given in the paper text. Sometimes, spectral points or lightcurve points
-are given in \ascii or \fits format on some webpage, or can be obtained from the
-corresponding author. In this section we describe prior efforts to gather
+are given in \ascii\ or \fits\ format on some webpage, or can be obtained from
+the corresponding author. In this section we describe prior efforts to gather
 available TeV gamma-ray data. A H.E.S.S. source list is available in HTML
 (Hypertext markup language) and CSV (character-separated values) formats at
 \hesscat, some spectra and lightcurves of blazars measured by H.E.S.S. in FITS
 (Flexible Image Transport system) and VOTable (Virtual Observatory table)
 formats at \obspm. Some VERITAS images, lightcurves and spectra in FITS format
-are available at \veritasdata. MAGIC at \magicurl. A light curve archive with
-FITS and VOTABLE data for some blazars is available at \desylc, which is an
-evolution of the data format and dataset described in \citet{lc}.
-
- % HAWC publications are listed at \hawcdata. At this time, no HAWC data in
- % machine-readable format is available for download yet.
+are available at \veritasdata. MAGIC at \magicurl. The release of the H.E.S.S.
+Galactic plane survey catalog and the first all-sky HAWC catalog is expected
+soon. FITS and VOTABLE data for some blazars is available at \desylc, which is
+an evolution of the data format and dataset described in \citet{lc}. There's
+also 2WHSP (\whsp, \citet{whsp}), a very recent catalog of of HE and VHE
+gamma-ray blazars and blazar candidates.
 
 An online TeV source catalog is available at \tevcaturl\ \citep{tevcat}.
 \tevcat\ is not available for download, and the terms and conditions page
@@ -132,8 +133,7 @@ and web-based tools to browse and analyze the data. The \tegev\ data is
 available for download in CSV format, downloading all data (including
 spectral points and lightcurves) would require scraping the website or contacting the maintainers.
 
-% TODO: should we have such comments here?
-% \tevcat\ is usually very up-to-date with newly detected TeV sources and papers, \tegev\ is currently at version 2 from July 2015. In the next 
+Given that these gamma-ray data collection exist, the question ``why start a new one?'' needs to be answered. We will first present \gammacat\ in the next section, and then address this question in the conclusions.
 
 \section{\gammacat}
 \label{sec:gammacat}
@@ -253,6 +253,10 @@ lightcurves or analyzing them, or generating a TeV sky model from the catalog.
 % Note that none of the other TeV gamma-ray data collections and catalogs we are
 % aware of (listed in Section~\ref{sec:others}) is fully open-access and open for
 % collaboration like \gammacat. We invite everyone to ...
+
+% TODO: should we have such comments here?
+% \tevcat\ is usually very up-to-date with newly detected TeV sources and papers, \tegev\ is currently at version 2 from July 2015. In the next 
+
 
 \gammacat\ is a TeV gamma-ray astronomy data collection and source catalog.
 Compared to previous similar projects, \gammacat\ stands out be being fully
