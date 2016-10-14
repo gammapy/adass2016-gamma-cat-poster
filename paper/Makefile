@@ -4,7 +4,7 @@ BIBTEX=bibtex
 
 all: $(TARGET).pdf
 
-$(TARGET).pdf: *.tex figures/* $(TARGET).bib
+$(TARGET).pdf: *.tex $(TARGET).bib
 
 %.pdf: %.tex
 	$(LATEX) $<
@@ -19,12 +19,10 @@ make clean:
 
 tarball:
 	- tar -cvzf $(TARGET).tar.gz \
+	copyrightForm_P6-7_deil.pdf \
 	$(TARGET).tex \
 	$(TARGET).bib \
 	$(TARGET).bbl \
-	figures/allsky.eps \
-	figures/lightcurve.eps \
-	# figures/P6-7_f1.eps \
-	# figures/P6-7_f2.eps \
+	allsky.eps \
 	asp2014.sty asp2014.bst \
 	Makefile

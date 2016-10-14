@@ -180,3 +180,7 @@ TSWLatexianTemp*
 *~[0-9]*
 
 *.pyc
+
+ADASS2017_author_template
+paper/temp
+paper/P6-7.tar.gz
