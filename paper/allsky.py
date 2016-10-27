@@ -10,6 +10,7 @@ from gammapy.image import SkyImage
 
 def get_image():
     filename = '/Users/deil/code/gammapy-extra/datasets/fermi_2fhl/gll_psch_v08.fit.gz'
+    print('Reading {}'.format(filename))
     image = SkyImage.read(filename)
     image.data = image.data.astype(float)
     sigma_pix = 3
@@ -42,15 +43,16 @@ def plot_image(image):
 
 
 def get_gammacat():
-    # TODO: change to gamma-cat when we have a first FITS version
-    filename = '/Users/deil/code/gamma-cat/other_cats/tgevcat/tgevcat.ecsv'
+    filename = '/Users/deil/code/gamma-cat/docs/data/gammacat.ecsv'
+    print('Reading {}'.format(filename))
     cat = Table.read(filename, format='ascii.ecsv')
+    print('Number of sources: {}'.format(len(cat)))
     return cat
 
 def plot_gammacat(cat):
     ax = plt.gca()
-    x = cat['GLON'].data
-    y = cat['GLAT'].data
+    x = cat['glon'].data
+    y = cat['glat'].data
     ax.scatter(x, y, s=50,
         edgecolor='white',
         # facecolor doesn't work with EPS, which is what we use for LaTeX
